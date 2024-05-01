@@ -1,0 +1,258 @@
+{
+	"info": {
+		"_postman_id": "7052a170-9388-4e82-bf45-466d32562e50",
+		"name": "LearnNow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20300813"
+	},
+	"item": [
+		{
+			"name": "Initial Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8006/learnnow/webapi/myresource",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8006",
+					"path": [
+						"learnnow",
+						"webapi",
+						"myresource"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUserDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8006/learnnow/user/getUserDetails?userName=harshit.jain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8006",
+					"path": [
+						"learnnow",
+						"user",
+						"getUserDetails"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "harshit.jain"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifyLanguage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    \"English\", \"Hindi\"\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8006/learnnow/user/modifyLanguage?userName=davis.herndon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8006",
+					"path": [
+						"learnnow",
+						"user",
+						"modifyLanguage"
+					],
+					"query": [
+						{
+							"key": "userName",
+							"value": "davis.herndon"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "registerUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\" : \"davis.herndon\",\r\n    \"firstName\" : \"Herndon\",\r\n    \"lastName\" : \"Davis\",\r\n    \"email\" : \"davis.herndon@xyz.com\",\r\n    \"passphrase\" : \"davis.herndon\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8006/learnnow/user/registerUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8006",
+					"path": [
+						"learnnow",
+						"user",
+						"registerUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validateUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\" : \"davis.herndon\",\r\n    \"passphrase\" : \"dh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8006/learnnow/authenticate/validateUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8006",
+					"path": [
+						"learnnow",
+						"authenticate",
+						"validateUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getQuizDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8006/learnnow/quiz/getQuizDetails?language=English",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8006",
+					"path": [
+						"learnnow",
+						"quiz",
+						"getQuizDetails"
+					],
+					"query": [
+						{
+							"key": "language",
+							"value": "English"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showResults",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\" : 1,\r\n    \"language\" : \"English\",\r\n    \"quizId\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8006/learnnow/userAnswers/showResults",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8006",
+					"path": [
+						"learnnow",
+						"userAnswers",
+						"showResults"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "submitQuizResponses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"userId\" : 2,\r\n        \"quizId\" : 1,\r\n        \"questionId\" : 101,\r\n        \"answer\" : \"Apple\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8006/learnnow/userAnswers/submitQuizResponses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8006",
+					"path": [
+						"learnnow",
+						"userAnswers",
+						"submitQuizResponses"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
